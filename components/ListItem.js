@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text, TouchableWithoutFeedback, View } from 'react-native';
 import { connect } from 'react-redux';
 import { CardSection } from './common';
 import { selectLibrary } from '../actions';
 
 class ListItem extends Component {
   render() {
-    const { dispatch, library } = this.props;
+    const { dispatch, library: { id, title } } = this.props;
     const { titleStyle } = styles;
 
     return (
-        <CardSection>
-          <Text style={titleStyle}>
-            {library.title}
-          </Text>
-        </CardSection>
+      <TouchableWithoutFeedback
+        onPress={() => dispatch(selectLibrary(id))}
+      >
+        <View>
+          <CardSection>
+            <Text style={titleStyle}>
+              {title}
+            </Text>
+          </CardSection>
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
