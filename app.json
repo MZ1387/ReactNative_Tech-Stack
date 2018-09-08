@@ -1,4 +1,5 @@
 {
-  "name": "tech_stack",
-  "displayName": "tech_stack"
+  "expo": {
+    "sdkVersion": "27.0.0"
+  }
 }
